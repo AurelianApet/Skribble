@@ -1,0 +1,812 @@
+* {
+    box-sizing: border-box;
+}
+/*avatar part*/
+.color{
+            background-image: url("../img/color_atlas.gif");
+
+            width:48px;
+            height:48px;
+            position: absolute;
+        }
+
+.eyes{
+            background-image: url("../img/eyes_atlas.gif");
+
+            width:48px;
+            height:48px;
+            position: absolute;
+            /*position: absolute;*/
+        }
+
+.mouth{
+            background-image: url("../img/mouth_atlas.gif");
+
+            width:48px;
+            height:48px;
+            position: absolute;
+            /*position: absolute;*/
+        }
+
+.arrow_color_left{
+            background-image: url("../img/arrow.gif");
+            width:16px;
+            height:16px;
+            background-position: -36px 0px;
+            background-color:white;
+            border:white;
+}
+.arrow_color_left:hover{
+            background-image: url("../img/arrow.gif");
+            background-position: -18px 0px;
+}
+
+.arrow_eyes_left{
+            background-image: url("../img/arrow.gif");
+            width:16px;
+            height:16px;
+            background-position: -36px 0px;
+            background-color:white;
+            border:white;
+}
+.arrow
+{
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+.arrow_eyes_left:hover{
+            background-image: url("../img/arrow.gif");
+            background-position: -18px 0px;
+}
+
+.arrow_mouth_left{
+            background-image: url("../img/arrow.gif");
+            width:16px;
+            height:16px;
+            background-position: -36px 0px;
+            background-color:white;
+            border:white;
+}
+
+.arrow_mouth_left:hover{
+            background-image: url("../img/arrow.gif");
+            background-position: -18px 0px;
+}
+
+.arrow_color_right{
+            background-image: url("../img/arrow.gif");
+            width:16px;
+            height:16px;
+            background-position: -36px -18px;
+            background-color:white;
+            border:white;
+}
+
+.arrow_color_right:hover{
+            background-image: url("../img/arrow.gif");
+            background-position: -18px -18px;
+}
+
+.arrow_eyes_right{
+            background-image: url("../img/arrow.gif");
+            width:16px;
+            height:16px;
+            background-position: -36px -18px;
+            background-color:white;
+            border:white;
+}
+
+.arrow_eyes_right:hover{
+            background-image: url("../img/arrow.gif");
+            background-position: -18px -18px;
+}
+.arrow_mouth_right{
+            background-image: url("../img/arrow.gif");
+            width:16px;
+            height:16px;
+            background-position: -36px -18px;
+            background-color:white;
+            border:white;
+}
+
+.arrow_mouth_right:hover{
+            background-image: url("../img/arrow.gif");
+            background-position: -18px -18px;
+}
+
+/*avatar part*/
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.top_logo{
+    float:left;
+    width: 300px;
+    height: 100px;
+    
+}
+body {
+background-color: #f4f2d9;
+background-image: url("../img/background.png");
+}
+
+#bigWindow {
+    position: relative;
+}
+
+#homeDescription {
+    margin: 20px 10px 20px 10px;
+}
+
+#homeDescription h1 {
+    margin-left: 10px;
+}
+#homeDescription p {
+    margin: 15px;
+}
+
+.loginWindow {
+    position: absolute;
+    width: 450px;
+    height: 345px;
+    top: 40%;
+    left: 50%;
+    margin-left: -225px;
+    margin-top: -150px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 8px 9px 5px black;
+    display: none;
+    /*border: 4px solid #fecc49;*/
+}
+
+.loginWindow h3 {
+    position: relative;
+    text-align: center;
+    color: black;
+    top: 30%;
+}
+.loginWindow img{
+    margin-top:20px;margin-left: auto;display: block;margin-right: auto;
+}
+
+.loginWindow form {
+    position: relative;
+    text-align: center;
+    top: 3%;
+
+}
+
+#guest_login_window form {
+     top: 15%;
+}
+.loginWindow form .form-group .form-control {
+    text-align: center;
+    width:350px;
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:10px;
+}
+
+.loginWindow form .form-group .btn {
+    margin-top: 25px;
+}
+
+
+#user_signup_window form {
+     top: 15%;
+}
+#user_signup_window {
+ height: 380px;   
+}
+#users .drawUser
+{
+    background: #ffbebe;
+}
+
+
+#gameContainer {
+    visibility: hidden;
+    margin: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#leftSideContainer {
+    /*width: 280px;
+    height:556px;
+    background:#fff;
+    float:left;
+*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 8px;
+    background:#fff;
+
+}
+
+
+#leftSideContainer table td{
+    padding: 10px;
+    /*padding-left:10px;*/
+    /*padding-top:5px;*/
+    /*vertical-align: bottom;*/
+    border-top: 1px solid #cacaca;
+    margin-top: 0px;
+    font-weight: 700;
+    font-size: 18px;
+}
+#first_pos_pointer{
+    color:lime;
+}
+#second_pos_pointer{
+    color:lime;
+}
+#third_pos_pointer{
+    color:lime;
+}
+#leftSideContainer table tr.guessed
+{
+        background: #aeeaad;
+
+}
+#leftSideBottom
+{
+    width: 100px;
+}
+
+#vote_kick_btn
+{
+    width: 279px;
+}
+.drawing img
+{
+    margin-left:20px;
+    width:30px;
+    height: 30px; 
+}
+
+
+#user_score_list
+{
+    margin-left: 35%;
+    text-align: left;
+    font-size: 24px;
+}
+#game_score_list
+{
+    margin-left: 350px;
+    text-align: left;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+#rightSideContainer {
+    /*width: 300px;
+    margin-left:5px;
+    float:left;*/
+
+    position: relative;
+    margin-left: 8px;
+    width: 340px;
+    min-width: 340px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#drawContainer {
+    /*width: 800px;
+    height: 600px;
+    position: relative;
+    background:#fff;
+    float: left;
+    margin-left:5px;*/
+
+
+
+        flex: 1 1 auto;
+    min-width: 300px;
+    position: relative;
+    margin: 0;
+    line-height: 0;
+    max-height: 600px;
+
+}
+#containerCanvas
+{
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+}
+#drawCanvas
+{
+    background: #fff;
+    width: 100%;
+    height: auto;
+    /*max-height:530px;*/
+
+}
+
+#notificationWindow {
+    position: absolute;
+    
+    display: none;
+    width: 800px;
+    height: 600px;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    border: 1px solid black;
+    border-radius: 2px;
+    z-index: 2;
+    background-color: #000000bd;
+    color: white;
+    font-size: 25px;
+
+
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    line-height: 1;
+ }
+
+ #notificationWindow p {
+     padding: 5px;
+     position: relative;
+     top: 43%;
+     text-align: center;
+     font-weight: bold;
+
+
+     
+ }
+#select_word_panel {
+    position: absolute;
+    
+    display: none;
+    width: 800px;
+    height: 600px;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    border: 1px solid black;
+    border-radius: 2px;
+    z-index: 2;
+    background-color: #000000bd;
+    color: white;
+    font-size: 25px;
+
+
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    line-height: 1;
+}
+#turn_number
+{
+    font-size: 30px;
+    margin-left: 25px;
+    font-weight: 700;
+}
+
+ #select_word_panel p {
+     padding: 5px;
+     position: relative;
+     top: 43%;
+     text-align: center;
+ }
+
+ #round_result_panel {
+    position: absolute;
+    
+    display: none;
+    width: 800px;
+    height: 600px;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    border: 1px solid black;
+    border-radius: 2px;
+    z-index: 2;
+    background-color: #000000bd;
+    color: white;
+    font-size: 25px;
+
+
+
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    line-height: 1;
+}
+ #game_result_panel {
+    position: absolute;
+    display: none;
+    width: 800px;
+    height: 600px;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    border: 1px solid black;
+    border-radius: 2px;
+    z-index: 2;
+    background-color: #000000bd;
+    color: white;
+    font-size: 25px;
+
+
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    line-height: 1;
+}
+
+#game_result_panel img
+{
+    width: 300px;
+}
+
+ #game_result_panel p {
+     padding: 5px;
+     position: relative;
+     top: 43%;
+     text-align: center;
+ }
+
+ #round_result_panel p {
+     padding: 5px;
+     position: relative;
+     top: 43%;
+     text-align: center;
+ }
+
+.result_text
+    {
+        width: 100%;
+        margin-top:70px;
+        text-align: center;
+
+    }
+
+#first_pos_user{
+    display: block
+}
+
+#first_pos_point{
+    display: block
+}
+#pos_list
+{
+    text-align: center;
+}
+#second_pos_user{
+    display: block
+}
+
+#second_pos_point{
+    display: block
+}
+
+
+#third_pos_user{
+    display: block
+}
+
+#third_pos_point{
+    display: block
+}
+
+#chatBox {
+    height: 253px;
+    border: 1px solid black;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+#chatMessages {
+    /*width: 300px;*/
+    height: 250px;
+    overflow-y: scroll;
+}
+
+#chatMessages p {
+    word-break: break-all;
+    padding: 0px;
+    padding-left:2px; 
+    margin-bottom: 0px;
+}
+
+#inputContainer {
+    height: 35px;
+    margin: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+#message {
+    padding: 0 0 0 5px;
+    margin: 0 10px 0 0;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+#wordHeader{
+    margin-top: 20px;
+}
+
+#wordContainer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#wordText{
+    width: 40%;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+  }
+
+.copyright {
+    color: black;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+
+@media only screen and (max-width: 720px) {
+    #notificationWindow {
+        /*top: 40px;*/
+        margin-top: 0px;
+    }
+} 
+
+
+
+    .ex-layout{
+        max-width: 1400px;
+        margin-left: 200px;
+
+    }
+    .ex-layout .top_ad{
+         /*background-color: white;*/
+        height:auto;
+        width:100%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+    }
+    .top_ad_panel{
+        float:right;
+
+        width: 900px;
+        height: 100px;
+        background: #aeeaad;
+    }
+    .ex-layout .top_panel{
+        background-color: white;
+        margin-bottom: 5px;
+        height:100px;
+        padding-top: 20px;
+        width:100%;
+    }
+    .ex-layout .main{
+        display: flex;
+        justify-content: center;
+    }
+    .ex-layout .main:after{ clear: both; display: block; content: '' }
+
+
+    .ex-layout .footer{
+        padding: 15px;
+        background-color: #ddd;
+    }
+    #remain_time
+    {
+        font-size: 36px;
+        font-weight: 700;
+    }
+    #hint_text
+    {
+        font-size: 36px;
+        font-weight: 700;
+        margin-left:17%;
+    }
+    .right_panel form
+    {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .right_ad_panel
+    {
+        background: #aeeaad;
+        height: 300px;
+        margin-bottom:5px;
+    }
+    .right_message_panel
+    {
+        background: white;
+    }
+    .notifi_btn_group
+    {
+        width: 100%;
+        margin-top:30%;
+        text-align: center;
+
+    }
+
+    .tool 
+    {
+        background: white;
+    }
+    .tool a {
+        border: 1px solid black;
+        height: 54px;
+        line-height: 30px;
+        padding: 0 10px;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        color: black;
+        font-weight: bold;
+    }
+    .tool img
+    {
+        padding:5px;
+        width: 45px;
+    }
+    .color_btn
+    {
+        height: 30px!important;
+        width: 30px;
+    }
+
+
+
+.dropbtn {
+  background-color: #000;
+  color: white;
+  padding: 1px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+  background: white;
+}
+.dropup img{
+    background: white;
+}
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 80px;
+  bottom: 30px;
+  z-index: 100;
+}
+
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropup-content a:hover {background-color: #ccc}
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.dropup:hover .dropbtn {
+  background-color: #2980B9;
+}
+
+.brush_size
+{
+     background: black;
+     border-radius:50%;
+     display: block;
+     margin-right: auto;
+     margin-left:auto;
+     vertical-align: center;
+}
+/*#drawContainer {
+   cursor: url("../img/pen.png"), auto;
+}*/
+
+#users td{
+ width: 40px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#users td.username{
+    /*text-align: center;*/
+ /*width: 140px;*/
+ padding-right: 0px;
+    padding-left: 0px;
+    min-width: 110px;
+}
+#users td.score{
+    text-align: center;
+ width: 50px;
+}
+
+
+#users
+{
+    min-width: 240px;
+}
+.info .name
+{
+    flex: 1 1 auto;
+    font-size: 16px;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+.info .score
+{
+    flex: 1 1 auto;
+    font-size: 14px;
+}
+.info
+{
+    flex: 1 1 auto;
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+    color: #000;
+    text-align: center;
+}
+
+.username.drawing
+{
+    background-image: url("../img/pen.gif");
+    background-size: 20%;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+

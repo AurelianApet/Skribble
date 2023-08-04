@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../assets/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <script src="../assets/libs/socket.io.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="user_login_window"  class="loginWindow fast">
+        <img src="../assets/img/logo1.png" width="220" >
+        
+        <form id="user_login_form">
+            <div class = "form-group ">
+                <input class ="form-control" id="user_login_name" placeholder="아이디"/>
+                <input class ="form-control" id="user_login_password" placeholder="비밀번호"/>
+                <input id="login_btn"  type="submit" class ="btn btn-primary" value="로그인" />
+            </div>
+            <div style="height: 14px;"><span style="color:red;" class="status_string"></span></div>
+            <div style="margin-top: -12px;">
+                <a style="float: left;margin-left: 20px;cursor: pointer;" onclick="userSignUpPressed()">회원가입</a>
+                <a style="float: right;margin-right: 20px;cursor: pointer;" onclick="playGuestPressed()">Guest 입장</a>
+            </div>
+        </form>
+    </div>
+
+    <div id="guest_login_window"  class="loginWindow fast">
+        <img src="../assets/img/logo1.png" width="220" >
+        <div class="avatar" style="display: flex;margin-left: 10px;">
+            <div class="arrow_left" style="width:16px; height:16px; margin-left:170px;">
+                <div class="arrow arrow_color_left" onclick="color_left()"></div>
+                <div class="arrow arrow_eyes_left" onclick="eyes_left()"></div>
+                <div class="arrow arrow_mouth_left" onclick="mouth_left()"></div>
+            </div>
+        
+            <div class="face" style="margin-top: 4px;">
+                <div class="color" id="id_color" style="background-position: 0px 0px;"></div>
+                <div class="eyes"  id="id_eyes" style="background-position: 0px 0px;"></div>
+                <div class="mouth" id="id_mouth" style="background-position: 0px 0px;"></div>
+                <!-- <div class="special" style=""></div>
+                <div class="owner" style=""></div>
+                <div class="drawing" style=""></div> -->
+            </div>
+
+            <div class="arrow_right" style="width:16px; height:16px; margin-left: 50px;">
+                <div class="arrow arrow_color_right" onclick="color_right()"></div>
+                <div class="arrow arrow_eyes_right" onclick="eyes_right()"></div>
+                <div class="arrow arrow_mouth_right" onclick="mouth_right()"></div>
+            </div>
+        </div>
+        <form id="guest_login_form">
+            <div class = "form-group ">
+
+                <input class ="form-control" id="guest_nickname" placeholder="닉네임"  />
+                <input type="submit" class ="btn btn-primary" value="Guest 입장" />
+            </div>
+        </form>
+        <div style="margin-top: 60px;">
+            <a style="float: left;margin-left: 20px;cursor: pointer;" onclick="playUserPressed_1()">로그인하기</a>
+        </div>
+    </div>
+
+
+    <div id="user_signup_window"  class="loginWindow fast">
+        <img src="../assets/img/logo1.png" width="220" >
+        <div class="avatar" style="display: flex;margin-left: 10px;">
+            <div class="arrow_left" style="width:16px; height:16px; margin-left:170px;">
+                <div class="arrow arrow_color_left" onclick="color_left()"></div>
+                <div class="arrow arrow_eyes_left" onclick="eyes_left()"></div>
+                <div class="arrow arrow_mouth_left" onclick="mouth_left()"></div>
+            </div>
+        
+            <div class="face" style="margin-top: 4px;">
+                <div class="color" id="id_color1" style="background-position: 0px 0px;"></div>
+                <div class="eyes"  id="id_eyes1" style="background-position: 0px 0px;"></div>
+                <div class="mouth" id="id_mouth1" style="background-position: 0px 0px;"></div>
+                <!-- <div class="special" style=""></div>
+                <div class="owner" style=""></div>
+                <div class="drawing" style=""></div> -->
+            </div>
+
+            <div class="arrow_right" style="width:16px; height:16px; margin-left: 50px;">
+                <div class="arrow arrow_color_right" onclick="color_right()"></div>
+                <div class="arrow arrow_eyes_right" onclick="eyes_right()"></div>
+                <div class="arrow arrow_mouth_right" onclick="mouth_right()"></div>
+            </div>
+        </div>
+        <form id="user_signup_form">
+            <div class = "form-group ">
+
+                <input class ="form-control" id="user_signup_name" placeholder="아이디"/>
+                <input class ="form-control" id="user_signup_password" placeholder="비밀번호"/>
+                <input type="submit" class ="btn btn-success" value="회원가입" />
+            </div>
+        </form>
+        <div style="margin-top: 50px;">
+            <a style="float: right;margin-right: 20px;cursor: pointer;" onclick="playUserPressed_2()">로그인하기</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<style>
+    .top_ad_panel,
+    .right_ad_panel
+    {
+        display: none!important;
+    }
+
+    #chatBox
+    {
+        height: 556px;
+
+    }
+    #chatMessages
+    {
+        height: 552px;
+    }
+    .loginWindow
+    {
+        font-size:14px;
+    }
+</style>
+<div class="ex-layout" id="gameContainer">
+    <div class="top_ad">
+        <img src="../assets/img/logo1.png" width="220" style="margin-top:0px;margin-left: 20px;">
+        <div class="top_ad_panel">ADS Part</div>
+    </div>
+    <div class="top_panel">
+        <div>
+            <img id="timer_img" src="../assets/img/alarm.png" alt="Captain Pangyo" style="margin-top:-1rem;margin-left: 1%;">
+            <span id= "remain_time">- -</span>
+            <span id= "turn_number">Round 1 / 3</span>
+
+            <span id= "hint_text">정답</span>
+            <!-- <span id= "room_name">방번호</span> -->
+        </div>
+    </div>
+    <div class="main">
+        <div id="leftSideContainer">
+            <div class="d-flex" id="tableContainer">
+                <table class="table table-borderless table-striped table-earning" id="users">
+                   <!--  <thead>
+                        <tr>
+                            <th scope="col">닉네임</th>
+                            <th scope="col">점수</th>
+                        </tr>
+                    </thead> -->
+                    <tbody>
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div style="display: inline-block;">
+                <button id="vote_kick_btn" class="btn btn-warning voteKick" style="font-weight: 700;" onclick="voteKick()">강퇴하기</button>
+            </div>
+        </div>
+        <div class="draw_panel"  id="drawContainer">
+            <div id="containerCanvas">
+                <canvas id="drawCanvas"></canvas>
+
+                <div id="notificationWindow">
+                    <p>Notification</p>
+                </div>
+                <div id="select_word_panel">
+                    <div class="notifi_btn_group">
+                        <button class="btn0" onclick="selectWord(0)">btn1</button>
+                        <button class="btn1" onclick="selectWord(1)">btn2</button>
+                        <button class="btn2" onclick="selectWord(2)">btn3</button>
+                    </div>
+                </div>
+
+                <div id="round_result_panel" >
+                    <div class="result_text">
+                       <h2>정답은 '<span id="correct_word">apple</span>' 이 었습니다.</h2>
+                        <span id="everybody_guessed">모두 정답을 맞추셨습니다!</span>
+                        <p></p>
+                        <div id="user_score_list">
+                            <div>User1 <span>+100</span></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="game_result_panel" >
+                    <div class="result_text">
+                        <div class="row">
+                            <div class="col-md-5" style="margin-top: 60px;text-align: right;">
+                                <span id="first_pos_user">  </span>
+                                <span id="first_pos_pointer" style="margin-right: -25px;">  </span>
+                            </div>
+                            <div  class="col-md-2" style="">
+                                <span id="second_pos_user">  </span>
+                                <span id="second_pos_pointer">  </span>
+                            </div>
+                            <div  class="col-md-5" style="margin-top: 60px;text-align: left;">    
+                                <span id="third_pos_user">  </span>
+                                <span id="third_pos_pointer" style="margin-left: -25px;">  </span>
+                            </div>
+                        </div>
+                        <img src="../assets/img/cup.png"  style="margin-top: -50px;"/>
+                        <div id="game_score_list">
+                            <div> </div>
+                            <div> </div>
+                            <div> </div>
+                            <div> </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            
+            <div class="tool" style="padding: 10px;margin-top: 5px;">
+                <div class="dropup">
+                    <button onclick="selectBrush(5)" class="dropbtn">
+                        <img src="../assets/img/brush.png" />
+                    </button>
+                    <div class="dropup-content">
+                        <a  href="#" onclick="selectBrush(30)"><div class="brush_size" style="width: 35px;height:35px; "></div></a>
+                        <a  href="#" onclick="selectBrush(20)"><div class="brush_size" style="width: 30px;height:30px;  "></div></a>
+                        <a  href="#" onclick="selectBrush(10)"><div class="brush_size" style="width: 20px;height:20px;  "></div></a>
+                        <a  href="#" onclick="selectBrush(5)"><div class="brush_size" style="width: 10px;height:10px;  "></div></a>
+                    </div>
+                </div>
+                
+             <!--    <div class="dropup">
+                  <button onclick="selectBucket()" class="dropbtn"><img src="../assets/img/fill.png" /></button>
+                </div> -->
+
+                <div class="dropup">
+                    <button onclick="selectEraser(5)" class="dropbtn"><img src="../assets/img/erase.png" /></button>
+                    <div class="dropup-content">
+                        <a href="#" onclick="selectEraser(30)"><div class="brush_size" style="width: 35px;height:35px;  "></div></a>
+                        <a href="#" onclick="selectEraser(20)"><div class="brush_size" style="width: 30px;height:30px;  "></div></a>
+                        <a href="#" onclick="selectEraser(10)"><div class="brush_size" style="width: 20px;height:20px;  "></div></a>
+                        <a href="#" onclick="selectEraser(5)"><div class="brush_size" style="width: 10px;height:10px;  "></div></a>
+                    </div>
+                </div>
+
+                <div class="dropup">
+                    <button onclick="selectUndo()" class="dropbtn"><img src="../assets/img/undo.png" /></button>
+                </div>
+                <div class="dropup">
+                    <button onclick="selectClear()" class="dropbtn"><img src="../assets/img/refresh.png" /></button>
+                </div>
+
+                
+
+                <a href="#" class="color_btn" onclick="changeColor('#f00')" style="background: #f00;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#ff0')" style="background: #ff0;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#0f0')" style="background: #0f0;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#0ff')" style="background: #0ff;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#00f')" style="background: #00f;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#f0f')" style="background: #f0f;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#000')" style="background: #000;"></a>
+                <a href="#" class="color_btn" onclick="changeColor('#fff')" style="background: #fff;"></a>
+
+               
+            </div>
+        </div>
+
+        <div class="right_panel" id="rightSideContainer">
+            <div class="right_ad_panel">ADS Part</div>
+            <div class="right_message_panel" >
+                <div id="chatBox">
+                    <div id="chatMessages">
+                    </div>
+                </div>
+                <form id="chatForm">
+                    <div class="d-flex justify-content-between" id="inputContainer">
+                        <input id="message" type="text" placeholder="메세지 입력" />
+                        <input type="submit" id="submit" class="btn btn-primary btn-sm" value="보내기"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!--     
+    <div class="d-flex" >
+
+
+        <div id="topSideContainer">sdfsdfsdfsdfsdfsdf</div>
+
+        <div class="flex-column" id="leftSideContainer">
+            <div class="d-flex" id="tableContainer">
+                <table class="table" id="users">
+                    <thead>
+                        <tr>
+                            <th scope="col">닉네임</th>
+                            <th scope="col">점수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="" id="drawContainer">
+            <div id="wordPanel"><span>sdfsdfsdf</span></div>
+            <canvas id="drawCanvas"></canvas>
+            <div id="notificationWindow">
+                <p>Notification</p>
+            </div>
+        </div>
+
+        <div class="flex-column" id="rightSideContainer">
+            <div id="chatBox">
+                <div id="chatMessages">
+                </div>
+            </div>
+            <form id="chatForm">
+                <div class="d-flex justify-content-between" id="inputContainer">
+                    <input id="message" type="text" placeholder="Message" />
+                    <input type="submit" id="submit" class="btn btn-primary btn-sm" value="보내기"/>
+                </div>
+            </form>
+        </div>
+    </div>
+ -->
+
+
+    <!-- jQuery library -->
+    <script src="../assets/libs/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="../assets/libs/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="../assets/libs/bootstrap.min.js"></script>
+
+    <script src="../assets/js/sketchpad.js"></script>
+    <script src="../assets/FrontendController.js"></script>
+
+   <!--  <script type="text/javascript">
+        
+    </script> -->
+</body>
+
+</html>
